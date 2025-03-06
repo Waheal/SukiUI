@@ -27,23 +27,13 @@
     <PackageReference Include="SkiaSharp" />
     <PackageReference Include="Avalonia.Controls.DataGrid" />
     <PackageReference Include="Avalonia.Themes.Simple" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" />
     <PackageReference Include="System.Linq.Dynamic.Core" />
   </ItemGroup>
 
   <ItemGroup>
     <AvaloniaResource Include="**\*.xaml" />
     <AvaloniaResource Include="Content\Images\icons8-file-explorer-new-48.png" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Bold.ttf" />
-
-    <None Remove="CustomFont\MiSans\MiSansLatin-Demibold.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-ExtraLight.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Heavy.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Light.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Medium.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Normal.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Regular.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Semibold.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Thin.ttf" />
   </ItemGroup>
 
   <ItemGroup>

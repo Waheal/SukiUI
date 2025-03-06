@@ -93,7 +93,6 @@
                 <Setter Property="Background" Value="{DynamicResource SukiPrimaryColor10}" />
             </Style>
             <Style Selector="^ /template/ TextBlock#PART_Header">
-                <Setter Property="FontWeight" Value="Bold" />
                 <Setter Property="Foreground" Value="{DynamicResource SukiPrimaryColor}" />
             </Style>
             <Style Selector="^[IsContentMovable=True]">
