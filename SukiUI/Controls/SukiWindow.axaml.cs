@@ -25,7 +25,7 @@ public class SukiWindow : Window
         get => GetValue(TitleFontSizeProperty);
         set => SetValue(TitleFontSizeProperty, value);
     }
-    
+
     public static readonly StyledProperty<ContextMenu> TitleBarContextMenuProperty =
         AvaloniaProperty.Register<SukiWindow, ContextMenu>(nameof(TitleBarContextMenu));
 
@@ -270,7 +270,7 @@ public class SukiWindow : Window
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
-        if (change.Property == WindowStateProperty && change.NewValue is WindowState windowState) 
+        if (change.Property == WindowStateProperty && change.NewValue is WindowState windowState)
             OnWindowStateChanged(windowState);
     }
 
