@@ -3,13 +3,11 @@ using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 using Avalonia.Media;
-using System;
 using Avalonia.Collections;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using SukiUI.Enums;
 using System.Runtime.InteropServices;
-using Avalonia.Layout;
 
 namespace SukiUI.Controls;
 
@@ -248,6 +246,14 @@ public class SukiWindow : Window
 
     public SukiWindow()
     {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            if (this is { } window)
+            {
+                window.ExtendClientAreaChromeHints = Avalonia.Platform.ExtendClientAreaChromeHints.NoChrome;
+                window.ExtendClientAreaToDecorationsHint = true;
+            }
+        }
         MenuItems = new AvaloniaList<MenuItem>();
         RightWindowTitleBarControls = new Avalonia.Controls.Controls();
         Hosts = new Avalonia.Controls.Controls();
@@ -289,11 +295,6 @@ public class SukiWindow : Window
         {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                if (this is { } window)
-                {
-                    window.ExtendClientAreaToDecorationsHint = true;
-                    window.ExtendClientAreaChromeHints = Avalonia.Platform.ExtendClientAreaChromeHints.NoChrome;
-                }
                 // Create handlers for buttons
                 if (e.NameScope.Get<Button>("PART_MaximizeButton") is { } maximize)
                 {
@@ -313,24 +314,11 @@ public class SukiWindow : Window
                     titleBar.DoubleTapped += OnMaximizeButtonClicked;
                 }
             }
-
-            /*
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-            {
-                if (e.NameScope.Get<Panel>("PART_Root") is { } rootPanel)
-                {
-                    AddResizeGripForLinux(rootPanel);
-                }
-                if (RootCornerRadius == default)
-                {
-                    RootCornerRadius = new CornerRadius(10);
-                }
-            }
-            */
         }
         catch
         {
             // ignored
+            return;
         }
     }
 
@@ -425,127 +413,5 @@ public class SukiWindow : Window
             return;
         base.OnPointerPressed(e);
         BeginMoveDrag(e);
-    }
-
-    private void AddResizeGripForLinux(Panel rootPanel)
-    {
-        var resizeBorders = new[]
-        {
-            new {
-                Tag = "North",
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Stretch,
-                Cursor = StandardCursorType.SizeNorthSouth,
-                IsCorner = false
-            },
-            new {
-                Tag = "South",
-                VerticalAlignment = VerticalAlignment.Bottom,
-                HorizontalAlignment = HorizontalAlignment.Stretch,
-                Cursor = StandardCursorType.SizeNorthSouth,
-                IsCorner = false
-            },
-            new {
-                Tag = "West",
-                VerticalAlignment = VerticalAlignment.Stretch,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                Cursor = StandardCursorType.SizeWestEast,
-                IsCorner = false
-            },
-            new {
-                Tag = "East",
-                VerticalAlignment = VerticalAlignment.Stretch,
-                HorizontalAlignment = HorizontalAlignment.Right,
-                Cursor = StandardCursorType.SizeWestEast,
-                IsCorner = false
-            },
-
-            new {
-                Tag = "NW",
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                Cursor = StandardCursorType.TopLeftCorner,
-                IsCorner = true
-            },
-            new {
-                Tag = "NE",
-                VerticalAlignment = VerticalAlignment.Top,
-                HorizontalAlignment = HorizontalAlignment.Right,
-                Cursor = StandardCursorType.TopRightCorner,
-                IsCorner = true
-            },
-            new {
-                Tag = "SW",
-                VerticalAlignment = VerticalAlignment.Bottom,
-                HorizontalAlignment = HorizontalAlignment.Left,
-                Cursor = StandardCursorType.BottomLeftCorner,
-                IsCorner = true
-            },
-            new {
-                Tag = "SE",
-                VerticalAlignment = VerticalAlignment.Bottom,
-                HorizontalAlignment = HorizontalAlignment.Right,
-                Cursor = StandardCursorType.BottomRightCorner,
-                IsCorner = true
-            }
-        };
-
-        foreach (var config in resizeBorders)
-        {
-            var border = new Border
-            {
-                Tag = config.Tag,
-                Background = Brushes.Transparent,
-                Cursor = new Cursor(config.Cursor)
-            };
-
-            if (config.IsCorner)
-            {
-                border.Width = 8;
-                border.Height = 8;
-                border.VerticalAlignment = config.VerticalAlignment;
-                border.HorizontalAlignment = config.HorizontalAlignment;
-            }
-            else
-            {
-                if (config.VerticalAlignment == VerticalAlignment.Stretch)
-                {
-                    border.Width = 6;
-                }
-                if (config.HorizontalAlignment == HorizontalAlignment.Stretch)
-                {
-                    border.Height = 6;
-                }
-                border.VerticalAlignment = config.VerticalAlignment;
-                border.HorizontalAlignment = config.HorizontalAlignment;
-            }
-
-            border.PointerPressed += RaiseResize;
-            rootPanel.Children.Add(border);
-        }
-    }
-
-    private void RaiseResize(object? sender, PointerPressedEventArgs e)
-    {
-        if (!CanResize) return;
-        if (sender is not Border border || border.Tag is not string edge) return;
-        if (VisualRoot is not Window window)
-            return;
-
-        var windowEdge = edge switch
-        {
-            "North" => WindowEdge.North,
-            "South" => WindowEdge.South,
-            "West" => WindowEdge.West,
-            "East" => WindowEdge.East,
-            "NW" => WindowEdge.NorthWest,
-            "NE" => WindowEdge.NorthEast,
-            "SW" => WindowEdge.SouthWest,
-            "SE" => WindowEdge.SouthEast,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-
-        window?.BeginResizeDrag(windowEdge, e);
-        e.Handled = true;
     }
 }
