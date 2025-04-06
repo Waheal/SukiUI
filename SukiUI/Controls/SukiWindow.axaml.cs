@@ -554,7 +554,7 @@ public class SukiWindow : Window, IDisposable
             close.Click += OnCloseButtonClicked;
             _disposeActions.Add(() => close.Click -= OnCloseButtonClicked);
         }
-
+        /*
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
             if (e.NameScope.Find<Panel>("PART_Root") is { } rootPanel)
@@ -566,6 +566,7 @@ public class SukiWindow : Window, IDisposable
                 RootCornerRadius = new CornerRadius(10);
             }
         }
+        */
     }
 
     /// <inheritdoc />
@@ -825,6 +826,7 @@ public class SukiWindow : Window, IDisposable
         ConstrainToMaxSizeRatio(MaxWidthScreenRatio > 0, MaxHeightScreenRatio > 0);
     }
 
+    /*
     /// <summary>
     /// Occurs when the resize grip is clicked.
     /// </summary>
@@ -854,6 +856,7 @@ public class SukiWindow : Window, IDisposable
         window.BeginResizeDrag(windowEdge, e);
         e.Handled = true;
     }
+    */
 
     private void HideTitleBarTimerOnTick(object sender, EventArgs e)
     {
@@ -941,6 +944,7 @@ public class SukiWindow : Window, IDisposable
         _disposeActions.Add(() => Win32Properties.RemoveWndProcHookCallback(this, wndProcHookCallback));
     }
 
+    /*
     /// <summary>
     /// Adds resize grips to the window for Linux system.
     /// </summary>
@@ -1043,6 +1047,7 @@ public class SukiWindow : Window, IDisposable
             rootPanel.Children.Add(border);
         }
     }
+    */
 
     /// <summary>
     /// Constrains the window to a maximum size ratio of the host screen.
