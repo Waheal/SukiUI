@@ -28,8 +28,7 @@ namespace SukiUI.Utilities.Effects
             "uniform vec3 iResolution;",
             "uniform vec3 iPrimary;",
             "uniform vec3 iAccent;",
-            "uniform vec3 iBase;",
-            "uniform vec3 iBaseF;"
+            "uniform vec3 iBase;"
         };
 
         private static readonly List<SukiEffect> LoadedEffects = new();
@@ -167,12 +166,6 @@ namespace SukiUI.Utilities.Effects
                     "iBase",
                     activeVariant == ThemeVariant.Dark
                         ? _backgroundAlloc
-                        : White
-                },
-                {
-                    "iBaseF",
-                    activeVariant == ThemeVariant.Dark
-                        ? Black
                         : White
                 },
                 { "iAccent", _backgroundAccentAlloc },
