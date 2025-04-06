@@ -41,7 +41,6 @@
                                                  IsVisible="{OnPlatform False,Windows=True}"
                                                  Margin="-150"
                                                  AnimationEnabled="{TemplateBinding BackgroundAnimationEnabled}"
-                                                 ForceSoftwareRendering="{TemplateBinding BackgroundForceSoftwareRendering}"
                                                  ShaderCode="{TemplateBinding BackgroundShaderCode}"
                                                  ShaderFile="{TemplateBinding BackgroundShaderFile}"
                                                  Style="{TemplateBinding BackgroundStyle}"
