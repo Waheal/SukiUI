@@ -1,11 +1,12 @@
 <Styles x:Class="SukiUI.SukiTheme"
         xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:suki="https://github.com/kikipoulet/SukiUI"
         xmlns:system="clr-namespace:System;assembly=netstandard">
 
     <SimpleTheme />
 
-    <StyleInclude Source="avares://SukiUI/Theme/TextStyles.axaml"/>
+    <StyleInclude Source="avares://SukiUI/Theme/TextStyles.axaml" />
 
     <StyleInclude Source="avares://SukiUI/Theme/ComboBoxStyles.xaml" />
     <StyleInclude Source="avares://SukiUI/Theme/Colors.xaml" />
@@ -18,6 +19,7 @@
     <StyleInclude Source="avares://SukiUI/Theme/ListBoxStyles.xaml" />
     <StyleInclude Source="avares://SukiUI/Theme/TreeViewStyles.xaml" />
 
+    <StyleInclude Source="avares://SukiUI/Theme/ToolTipStyles.axaml" />
     <StyleInclude Source="avares://SukiUI/Theme/ToggleSwitchStyles.xaml" />
     <StyleInclude Source="avares://SukiUI/Theme/RadioButtonStyles.xaml" />
     <StyleInclude Source="avares://SukiUI/Theme/ToggleButtonStyles.xaml" />
@@ -49,14 +51,15 @@
             <system:TimeSpan x:Key="LongAnimationDuration">0.5</system:TimeSpan>
             <system:TimeSpan x:Key="MediumAnimationDuration">0.35</system:TimeSpan>
             <system:TimeSpan x:Key="ShortAnimationDuration">0.2</system:TimeSpan>
-            <Easing x:Key="MenuEasing">CircularEaseOut</Easing>
+
+            <suki:SukiEasingOutBounced x:Key="MenuEasing" BounceIntensity="Soft" />
+
 
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://sukiUI/Theme/TextBlock.xaml" />
                 <ResourceInclude Source="avares://sukiUI/Theme/SplitButton.axaml" />
                 <ResourceInclude Source="avares://SukiUI/Theme/SplitView.axaml" />
                 <ResourceInclude Source="avares://SukiUI/Theme/DatePicker.axaml" />
-                <ResourceInclude Source="avares://sukiUI/Theme/ToolTipStyle.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Theme/Button.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Theme/HyperlinkButton.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Theme/PathIcon.axaml" />
@@ -84,6 +87,7 @@
                 <ResourceInclude Source="avares://sukiUI/Controls/SukiToast.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Controls/Hosts/SukiToastHost.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Controls/Hosts/SukiDialogHost.axaml" />
+                <ResourceInclude Source="avares://sukiUI/Controls/Hosts/SukiMessageBoxHost.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Controls/SukiDialog.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Controls/SukiSideMenu.axaml" />
                 <ResourceInclude Source="avares://sukiUI/Controls/SukiStackPage.axaml" />
