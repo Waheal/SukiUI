@@ -138,7 +138,6 @@ namespace SukiUI.Utilities.Effects
         }
 
         private static readonly float[] White = { 0.95f, 0.95f, 0.95f };
-        private static readonly float[] Black = { 0.05f, 0.05f, 0.05f };
         private readonly float[] _backgroundAlloc = new float[3];
         private readonly float[] _backgroundAccentAlloc = new float[3];
         private readonly float[] _backgroundPrimaryAlloc = new float[3];
