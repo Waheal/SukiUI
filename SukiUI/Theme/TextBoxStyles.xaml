@@ -129,8 +129,9 @@
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid>
+                <Grid RowDefinitions="Auto *">
                     <TextBlock Name="floatingWatermark"
+                               Grid.Row="0"
                                Margin="3,5"
                                FontSize="13"
                                FontWeight="DemiBold"
@@ -146,6 +147,7 @@
                     </TextBlock>
 
                     <suki:GlassCard Name="border"
+                                    Grid.Row="1"
                                     Padding="0"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -159,8 +161,8 @@
                             <theme:StringToDoubleConverter x:Key="StringToDoubleC" />
                         </suki:GlassCard.Resources>
                         <DataValidationErrors>
-
                             <Grid Margin="{TemplateBinding Padding}"
+                                  Cursor="Ibeam"
                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                   ColumnDefinitions="Auto,*,Auto">
@@ -180,7 +182,7 @@
                                         <TextBlock Name="watermark"
                                                    FontSize="{TemplateBinding FontSize}"
                                                    IsVisible="{TemplateBinding Text,
-                                                                               Converter={x:Static StringConverters.IsNullOrEmpty}}"
+                                                   Converter={x:Static StringConverters.IsNullOrEmpty}}"
                                                    Opacity="0.5"
                                                    Text="{TemplateBinding Watermark}"
                                                    TextAlignment="{TemplateBinding TextAlignment}"
@@ -195,8 +197,7 @@
                                                        SelectionEnd="{TemplateBinding SelectionEnd}"
                                                        SelectionForegroundBrush="{TemplateBinding SelectionForegroundBrush}"
                                                        SelectionStart="{TemplateBinding SelectionStart}"
-                                                       Text="{TemplateBinding Text,
-                                                                              Mode=TwoWay}"
+                                                       Text="{TemplateBinding Text, Mode=TwoWay}"
                                                        TextAlignment="{TemplateBinding TextAlignment}"
                                                        TextBlock.FontSize="{TemplateBinding FontSize}"
                                                        TextBlock.Foreground="{TemplateBinding Foreground}"
