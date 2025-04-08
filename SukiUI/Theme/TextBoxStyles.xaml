@@ -129,8 +129,9 @@
         <Setter Property="ContextFlyout" Value="{StaticResource DefaultTextBoxContextFlyout}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Grid>
+                <Grid RowDefinitions="Auto *">
                     <TextBlock Name="floatingWatermark"
+                               Grid.Row="0"
                                Margin="3,5"
                                FontSize="13"
                                FontWeight="DemiBold"
@@ -146,6 +147,7 @@
                     </TextBlock>
 
                     <suki:GlassCard Name="border"
+                                    Grid.Row="1"
                                     Padding="0"
                                     BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="{TemplateBinding BorderThickness}"
@@ -159,8 +161,8 @@
                             <theme:StringToDoubleConverter x:Key="StringToDoubleC" />
                         </suki:GlassCard.Resources>
                         <DataValidationErrors>
-
                             <Grid Margin="{TemplateBinding Padding}"
+                                  Cursor="Ibeam"
                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                   VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                   ColumnDefinitions="Auto,*,Auto">
