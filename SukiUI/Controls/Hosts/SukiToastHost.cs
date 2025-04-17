@@ -30,7 +30,7 @@ namespace SukiUI.Controls
             set => SetValue(MaxToastsProperty, value);
         }
 
-        public static readonly StyledProperty<ToastLocation> PositionProperty = AvaloniaProperty.Register<SukiToastHost, ToastLocation>(nameof(Position), defaultValue: ToastLocation.BottomRight);
+        public static readonly StyledProperty<ToastLocation> PositionProperty = AvaloniaProperty.Register<SukiToastHost, ToastLocation>(nameof(Position), defaultValue: ToastLocation.TopRight);
 
         public ToastLocation Position
         {
