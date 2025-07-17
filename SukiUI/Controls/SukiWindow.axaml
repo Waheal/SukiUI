@@ -47,8 +47,8 @@
                                                             CornerRadius="0"
                                                             IsAnimated="False"
                                                             IsVisible="{TemplateBinding ShowTitlebarBackground}" />
-                                            <DockPanel Margin="12,9" LastChildFill="True">
-                                                <StackPanel VerticalAlignment="Center"
+                                            <DockPanel LastChildFill="True">
+                                                <StackPanel VerticalAlignment="Top"
                                                             DockPanel.Dock="Right"
                                                             Orientation="Horizontal"
                                                             Spacing="7">
@@ -81,7 +81,7 @@
                                                             VerticalContentAlignment="Bottom"
                                                             Classes="WindowControlsButton"
                                                             IsVisible="{TemplateBinding CanMinimize}">
-                                                        <PathIcon Margin="0,0,0,6.5"
+                                                        <PathIcon Margin="0,0,0,10"
                                                                   VerticalAlignment="Bottom"
                                                                   Data="{x:Static icons:Icons.WindowMinimize}" />
                                                     </Button>
@@ -96,6 +96,7 @@
                                                 </StackPanel>
                                                 <StackPanel VerticalAlignment="Center"
                                                             Orientation="Horizontal"
+                                                            Margin="12,0,0,0"
                                                             Spacing="10">
                                                     <ContentPresenter Name="PART_Logo"
                                                                       HorizontalAlignment="Left"
