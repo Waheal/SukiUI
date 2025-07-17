@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:animations="clr-namespace:SukiUI.Animations"
                     xmlns:suki="https://github.com/kikipoulet/SukiUI"
                     xmlns:sys="using:System">
     <Design.PreviewWith>
@@ -20,7 +21,7 @@
     <SolidColorBrush x:Key="SplitViewLightDismissOverlayBackground"
                      Opacity="0.6"
                      Color="{DynamicResource ThemeControlLowColor}" />
-    <sys:TimeSpan x:Key="SplitViewPaneAnimationOpenDuration">00:00:1</sys:TimeSpan>
+    <sys:TimeSpan x:Key="SplitViewPaneAnimationOpenDuration">00:00:0.7</sys:TimeSpan>
     <sys:TimeSpan x:Key="SplitViewPaneAnimationCloseDuration">00:00:0.6</sys:TimeSpan>
 
     <!-- Not used here (directly), but preserving for reference
@@ -199,7 +200,7 @@
                 <Transitions>
                     <DoubleTransition Property="Width" Duration="{StaticResource SplitViewPaneAnimationOpenDuration}">
                         <DoubleTransition.Easing>
-                            <suki:SukiEasingSmoothOutBounced />
+                            <animations:SukiEaseInOutBack BounceIntensity="Strong" />
                         </DoubleTransition.Easing>
                     </DoubleTransition>
                 </Transitions>
@@ -222,7 +223,7 @@
                 <Transitions>
                     <DoubleTransition Property="Width" Duration="{StaticResource SplitViewPaneAnimationCloseDuration}">
                         <DoubleTransition.Easing>
-                            <suki:SukiSmoothEasingOut />
+                            <animations:SukiEaseInOut />
                         </DoubleTransition.Easing>
                     </DoubleTransition>
                 </Transitions>
