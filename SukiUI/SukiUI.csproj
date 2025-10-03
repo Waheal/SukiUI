@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <RootNamespace>SukiUI</RootNamespace>
     <UserSecretsId>712f85e4-12d3-41b0-a417-5714a113666f</UserSecretsId>
@@ -28,31 +28,9 @@
     <PackageReference Include="System.Text.Json" />
   </ItemGroup>
 
-
   <ItemGroup>
     <AvaloniaResource Include="**\*.xaml" />
     <AvaloniaResource Include="Content\Images\icons8-file-explorer-new-48.png" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Bold.ttf" />
-
-    <None Remove="CustomFont\MiSans\MiSansLatin-Demibold.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-ExtraLight.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Heavy.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Light.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Medium.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Normal.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Regular.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Semibold.ttf" />
-    <None Remove="CustomFont\MiSans\MiSansLatin-Thin.ttf" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <AvaloniaResource Include="Roboto-Regular.ttf" />
-    <AvaloniaResource Include="Roboto-Medium.ttf" />
-    <AvaloniaResource Include="CustomFont\Quicksand-Bold.ttf" />
-    <AvaloniaResource Include="CustomFont\Quicksand-Light.ttf" />
-    <AvaloniaResource Include="CustomFont\Quicksand-Medium.ttf" />
-    <AvaloniaResource Include="CustomFont\Quicksand-Regular.ttf" />
-    <AvaloniaResource Include="CustomFont\Quicksand-SemiBold.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -116,15 +94,10 @@
     <EmbeddedResource Include="Content\Shaders\Background\waves.sksl" />
     <EmbeddedResource Include="Content\Shaders\Loading\glow.sksl" />
     <EmbeddedResource Include="Content\Shaders\Loading\pellets.sksl" />
-    <None Remove="Content\Shaders\Background\gradient.sksl" />
     <EmbeddedResource Include="Content\Shaders\Background\gradient.sksl" />
-    <None Remove="Content\Shaders\Loading\simple.sksl" />
     <EmbeddedResource Include="Content\Shaders\Loading\simple.sksl" />
-    <None Remove="Content\Shaders\Background\gradientsoft.sksl" />
     <EmbeddedResource Include="Content\Shaders\Background\gradientsoft.sksl" />
-    <None Remove="Content\Shaders\Background\gradientdarker.sksl" />
     <EmbeddedResource Include="Content\Shaders\Background\gradientdarker.sksl" />
-    <None Remove="Content\Shaders\Background\backgroundshadcn.sksl" />
     <EmbeddedResource Include="Content\Shaders\Background\backgroundshadcn.sksl" />
   </ItemGroup>
 </Project>

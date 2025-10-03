@@ -172,11 +172,16 @@ public class SukiSideMenu : TreeView
     {
         if(_sideMenuItems.Any())
             foreach (var item in _sideMenuItems)
+            {
                 item.IsTopMenuExpanded = IsMenuExpanded;
-
+                item.IsContentMovable = IsSelectedItemContentMovable;
+            }
         else if(Items.FirstOrDefault() is SukiSideMenuItem)
-            foreach (SukiSideMenuItem? item in Items)
+            foreach (SukiSideMenuItem? item in Items.Cast<SukiSideMenuItem?>())
+            {
                 item!.IsTopMenuExpanded = IsMenuExpanded;
+                item!.IsContentMovable = IsSelectedItemContentMovable;
+            }
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)

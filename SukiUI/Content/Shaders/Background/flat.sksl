@@ -40,7 +40,6 @@ float noise(vec2 p) {
 }
 
 vec4 main(vec2 fragCoord) {
-
     vec3 grayBase = vec3(0.25, 0.25, 0.25);
     vec2 uv = fragCoord / iResolution.xy;
     float ratio = iResolution.x / iResolution.y;

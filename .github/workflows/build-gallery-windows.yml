@@ -13,6 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Install .NET
+        uses: actions/setup-dotnet@v4
+        with: 
+          dotnet-version: 9.0.x
+
       - name: Build Native
         run: dotnet publish SukiUI.Demo/SukiUI.Demo.csproj -c Release -r win-x64 -o bin/
 

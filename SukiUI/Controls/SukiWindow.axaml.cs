@@ -440,6 +440,15 @@ public class SukiWindow : Window, IDisposable
     #region Constructor
     public SukiWindow()
     {
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        {
+            if (this is { } window)
+            {
+                window.ExtendClientAreaChromeHints = Avalonia.Platform.ExtendClientAreaChromeHints.NoChrome;
+                window.ExtendClientAreaToDecorationsHint = true;
+            }
+        }
+
         Hosts = [];
         RightWindowTitleBarControls = [];
         MenuItems = [];
@@ -518,7 +527,7 @@ public class SukiWindow : Window, IDisposable
             close.Click += OnCloseButtonClicked;
             _disposeActions.Add(() => close.Click -= OnCloseButtonClicked);
         }
-
+        /*
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
         {
             if (e.NameScope.Find<Panel>("PART_Root") is { } rootPanel)
@@ -530,6 +539,7 @@ public class SukiWindow : Window, IDisposable
                 RootCornerRadius = new CornerRadius(10);
             }
         }
+        */
     }
 
     /// <inheritdoc />
@@ -789,6 +799,7 @@ public class SukiWindow : Window, IDisposable
         this.ConstrainMaxSizeToScreenRatio(MaxWidthScreenRatio, MaxHeightScreenRatio);
     }
 
+    /*
     /// <summary>
     /// Occurs when the resize grip is clicked.
     /// </summary>
@@ -818,6 +829,7 @@ public class SukiWindow : Window, IDisposable
         window.BeginResizeDrag(windowEdge, e);
         e.Handled = true;
     }
+    */
 
     private void HideTitleBarTimerOnTick(object sender, EventArgs e)
     {
@@ -909,6 +921,7 @@ public class SukiWindow : Window, IDisposable
         _disposeActions.Add(() => Win32Properties.RemoveWndProcHookCallback(this, wndProcHookCallback));
     }
 
+    /*
     /// <summary>
     /// Adds resize grips to the window for Linux system.
     /// </summary>
@@ -1009,6 +1022,7 @@ public class SukiWindow : Window, IDisposable
             rootPanel.Children.Add(border);
         }
     }
+    */
 
     /// <summary>
     /// Toggles the full screen mode.
