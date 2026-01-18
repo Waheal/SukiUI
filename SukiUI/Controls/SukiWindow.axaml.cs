@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using Avalonia.Collections;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
@@ -355,7 +355,7 @@ public class SukiWindow : Window, IDisposable
 
     // Background properties
     public static readonly StyledProperty<bool> BackgroundAnimationEnabledProperty =
-        SukiMainHost.BackgroundAnimationEnabledProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundAnimationEnabledProperty.AddOwner<SukiWindow>();
 
     /// <inheritdoc cref="SukiBackground.AnimationEnabled"/>
     public bool BackgroundAnimationEnabled
@@ -365,7 +365,7 @@ public class SukiWindow : Window, IDisposable
     }
 
     public static readonly StyledProperty<SukiBackgroundStyle> BackgroundStyleProperty =
-        SukiMainHost.BackgroundStyleProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundStyleProperty.AddOwner<SukiWindow>();
 
     /// <inheritdoc cref="SukiBackground.Style"/>
     public SukiBackgroundStyle BackgroundStyle
@@ -375,7 +375,7 @@ public class SukiWindow : Window, IDisposable
     }
 
     public static readonly StyledProperty<string?> BackgroundShaderFileProperty =
-        SukiMainHost.BackgroundShaderFileProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundShaderFileProperty.AddOwner<SukiWindow>();
 
     /// <inheritdoc cref="SukiBackground.ShaderFile"/>
     public string? BackgroundShaderFile
@@ -385,7 +385,7 @@ public class SukiWindow : Window, IDisposable
     }
 
     public static readonly StyledProperty<string?> BackgroundShaderCodeProperty =
-        SukiMainHost.BackgroundShaderCodeProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundShaderCodeProperty.AddOwner<SukiWindow>();
 
     /// <inheritdoc cref="SukiBackground.ShaderCode"/>
     public string? BackgroundShaderCode
@@ -395,7 +395,7 @@ public class SukiWindow : Window, IDisposable
     }
 
     public static readonly StyledProperty<bool> BackgroundTransitionsEnabledProperty =
-        SukiMainHost.BackgroundTransitionsEnabledProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundTransitionsEnabledProperty.AddOwner<SukiWindow>();
 
     /// <inheritdoc cref="SukiBackground.TransitionsEnabled"/>
     public bool BackgroundTransitionsEnabled
@@ -405,7 +405,7 @@ public class SukiWindow : Window, IDisposable
     }
 
     public static readonly StyledProperty<double> BackgroundTransitionTimeProperty =
-        SukiMainHost.BackgroundTransitionTimeProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundTransitionTimeProperty.AddOwner<SukiWindow>();
 
     /// <inheritdoc cref="SukiBackground.TransitionTime"/>
     public double BackgroundTransitionTime
@@ -415,7 +415,7 @@ public class SukiWindow : Window, IDisposable
     }
 
     public static readonly StyledProperty<bool> BackgroundForceSoftwareRenderingProperty =
-        SukiMainHost.BackgroundForceSoftwareRenderingProperty.AddOwner<SukiWindow>();
+        SukiMainPanel.BackgroundForceSoftwareRenderingProperty.AddOwner<SukiWindow>();
 
     /// <summary>
     /// Forces the background of the window to utilise software rendering.

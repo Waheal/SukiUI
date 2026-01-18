@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls;
 using Avalonia.Input;
@@ -159,7 +159,7 @@ public static class SukiMessageBox
 
         if (windowOptions.UseNativeWindow)
         {
-            var sukiHost = new SukiMainHost
+            var sukiHost = new SukiMainPanel
             {
                 Content = messageBox,
             };

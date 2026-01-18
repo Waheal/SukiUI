@@ -14,7 +14,7 @@
         <Border Width="400"
                 Height="400"
                 Background="Gray">
-            <suki:SukiMainHost Margin="20"
+            <suki:SukiMainPanel Margin="20"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                CornerRadius="10">
@@ -23,11 +23,11 @@
                         <SelectableTextBlock Text="SukiUI makes your Avalonia applications more modern. The library offers a large number of animated controls and theme switches." TextWrapping="Wrap" />
                     </suki:GroupBox>
                 </suki:GlassCard>
-            </suki:SukiMainHost>
+            </suki:SukiMainPanel>
         </Border>
     </Design.PreviewWith>
 
-    <ControlTheme x:Key="{x:Type suki:SukiMainHost}" TargetType="suki:SukiMainHost">
+    <ControlTheme x:Key="{x:Type suki:SukiMainPanel}" TargetType="suki:SukiMainPanel">
         <Setter Property="Foreground" Value="{DynamicResource SukiText}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Template">
@@ -35,18 +35,24 @@
                 <Border Background="Transparent"
                         ClipToBounds="True"
                         CornerRadius="{TemplateBinding CornerRadius}">
-                    <VisualLayerManager Name="PART_VisualLayerManager" IsHitTestVisible="True">
-                        <VisualLayerManager.ChromeOverlayLayer>
-                            <!-- <suki:SukiHost /> -->
-                            <ItemsControl ItemsSource="{Binding Hosts, RelativeSource={RelativeSource AncestorType={x:Type suki:SukiMainHost}}}">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <Panel />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
-                        </VisualLayerManager.ChromeOverlayLayer>
                         <Panel Name="PART_Root">
+                            <!--  Margin -100 is there to exclude the unwanted bright corners  -->
+                            <suki:SukiBackground Name="PART_Background"
+                                                 Margin="-150"
+                                                 AnimationEnabled="{TemplateBinding BackgroundAnimationEnabled}"
+                                                 ForceSoftwareRendering="{TemplateBinding BackgroundForceSoftwareRendering}"
+                                                 ShaderCode="{TemplateBinding BackgroundShaderCode}"
+                                                 ShaderFile="{TemplateBinding BackgroundShaderFile}"
+                                                 Style="{TemplateBinding BackgroundStyle}"
+                                                 TransitionTime="{TemplateBinding BackgroundTransitionTime}"
+                                                 TransitionsEnabled="{TemplateBinding BackgroundTransitionsEnabled}" />
+
+                            <Border Background="White"
+                                    IsHitTestVisible="False"
+                                    IsVisible="{DynamicResource IsLight}"
+                                    Opacity="0.1" />
+
+
                             <ContentPresenter x:Name="PART_ContentPresenter"
                                               Margin="{TemplateBinding Padding}"
                                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -61,7 +67,6 @@
                                               CornerRadius="{TemplateBinding CornerRadius}"
                                               IsHitTestVisible="True" />
                         </Panel>
-                    </VisualLayerManager>
                 </Border>
             </ControlTemplate>
         </Setter>

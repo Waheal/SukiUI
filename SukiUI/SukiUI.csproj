@@ -48,6 +48,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\SukiBodyHost.axaml.cs">
+      <DependentUpon>SukiBodyHost.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Controls\SukiMainPanel.axaml.cs">
+      <DependentUpon>SukiMainPanel.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Controls\WaveProgress.axaml.cs">
       <DependentUpon>WaveProgress.axaml</DependentUpon>
       <SubType>Code</SubType>

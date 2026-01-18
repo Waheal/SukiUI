@@ -35,7 +35,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <Panel Name="PART_Root" Margin="{TemplateBinding Margin}">
-                    <suki:SukiMainHost BackgroundAnimationEnabled="{TemplateBinding BackgroundAnimationEnabled}"
+                    <suki:SukiMainPanel BackgroundAnimationEnabled="{TemplateBinding BackgroundAnimationEnabled}"
                                        BackgroundForceSoftwareRendering="{TemplateBinding BackgroundForceSoftwareRendering}"
                                        BackgroundShaderCode="{TemplateBinding BackgroundShaderCode}"
                                        BackgroundShaderFile="{TemplateBinding BackgroundShaderFile}"
@@ -43,8 +43,7 @@
                                        BackgroundTransitionTime="{TemplateBinding BackgroundTransitionTime}"
                                        BackgroundTransitionsEnabled="{TemplateBinding BackgroundTransitionsEnabled}"
                                        CornerRadius="{TemplateBinding RootCornerRadius}"
-                                       Foreground="{TemplateBinding Foreground}"
-                                       Hosts="{Binding Hosts, RelativeSource={RelativeSource AncestorType={x:Type suki:SukiWindow}}}">
+                                       Foreground="{TemplateBinding Foreground}">
                         <DockPanel LastChildFill="True">
                             <Panel ContextMenu="{TemplateBinding TitleBarContextMenu}" DockPanel.Dock="Top">
                                 <StackPanel>
@@ -139,16 +138,18 @@
                                     <Border Name="PART_BottomBorder" BorderBrush="{DynamicResource SukiBorderBrush}" />
                                 </StackPanel>
                             </Panel>
-                            <ContentPresenter x:Name="PART_ContentPresenter"
+                            <suki:SukiMainHost Hosts="{Binding Hosts, RelativeSource={RelativeSource AncestorType={x:Type suki:SukiWindow}}}">
+                                <ContentPresenter x:Name="PART_ContentPresenter"
                                               Padding="{TemplateBinding Padding}"
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
                                               Content="{TemplateBinding Content}"
                                               ContentTemplate="{TemplateBinding ContentTemplate}"
                                               CornerRadius="10"
-                                              IsHitTestVisible="True" />
+                                              IsHitTestVisible="True"/>
+                            </suki:SukiMainHost>
                         </DockPanel>
-                    </suki:SukiMainHost>
+                    </suki:SukiMainPanel>
                 </Panel>
             </ControlTemplate>
         </Setter>
