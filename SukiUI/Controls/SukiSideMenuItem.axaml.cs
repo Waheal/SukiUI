@@ -33,7 +33,7 @@ public class SukiSideMenuItem : TreeViewItem
     }
 
     public static readonly StyledProperty<object> PageContentProperty =
-        AvaloniaProperty.Register<SukiSideMenuItem, object>(nameof(PageContent));
+        AvaloniaProperty.Register<SukiSideMenuItem, object>(nameof(PageContent), defaultValue: new TextBlock { Text = "Hello World!" });
 
     public object PageContent
     {
