@@ -56,7 +56,7 @@ public class SukiSideMenu : TreeView
     }
 
     public static readonly StyledProperty<bool> IsMenuExpandedProperty =
-        AvaloniaProperty.Register<SukiSideMenu, bool>(nameof(IsMenuExpanded), defaultValue: true);
+        AvaloniaProperty.Register<SukiSideMenu, bool>(nameof(IsMenuExpanded), defaultValue: true, inherits: true);
 
     public bool IsMenuExpanded
     {
