@@ -182,4 +182,18 @@ public class SukiSideMenuItem : TreeViewItem
         set => SetValue(IsTopMenuExpandedProperty, value);
     }
 
+    /// <summary>
+    /// 从所在 <see cref="SukiSideMenu"/> 继承的展开状态（含嵌套子项）。
+    /// 模板通过它而非 FindAncestor 绑定读取菜单状态：菜单项被移出侧栏时继承值回落为默认值，
+    /// 不会产生 "Ancestor not found" 绑定错误。
+    /// </summary>
+    public static readonly StyledProperty<bool> IsMenuExpandedProperty =
+        SukiSideMenu.IsMenuExpandedProperty.AddOwner<SukiSideMenuItem>();
+
+    public bool IsMenuExpanded
+    {
+        get => GetValue(IsMenuExpandedProperty);
+        set => SetValue(IsMenuExpandedProperty, value);
+    }
+
 }

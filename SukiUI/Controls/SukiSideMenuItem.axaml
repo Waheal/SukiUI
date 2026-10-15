@@ -27,7 +27,7 @@
         <Setter Property="Template">
             <ControlTemplate>
                 <DockPanel>
-                    <Panel DockPanel.Dock="Bottom" IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type suki:SukiSideMenu}}}">
+                    <Panel DockPanel.Dock="Bottom" IsVisible="{TemplateBinding IsMenuExpanded}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         Margin="20,0,0,0"
                                         IsVisible="{TemplateBinding IsExpanded}"
@@ -97,7 +97,7 @@
                                 </ContentControl>
                                 <Grid Name="PART_SideDisplay"
                                       DockPanel.Dock="Right"
-                                      IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type suki:SukiSideMenu}}}">
+                                      IsVisible="{TemplateBinding IsMenuExpanded}">
                                     <ContentPresenter Name="PART_SideDisplayContent"
                                                       Content="{TemplateBinding DataContext}"
                                                       ContentTemplate="{TemplateBinding SideDisplayTemplate}"
@@ -109,7 +109,7 @@
                                                Margin="15,0"
                                                VerticalAlignment="Center"
                                                FontSize="{TemplateBinding FontSize}"
-                                               IsVisible="{Binding IsMenuExpanded, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type suki:SukiSideMenu}}}"
+                                               IsVisible="{TemplateBinding IsMenuExpanded}"
                                                Text="{TemplateBinding Header}" />
                                 </Viewbox>
                             </DockPanel>
